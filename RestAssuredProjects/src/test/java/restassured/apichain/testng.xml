@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test  name="Test">
+    <classes>
+      
+      <class name="restassured.apichain.CreateUserAPIChain"/>
+      <class name="restassured.apichain.GetUserAPIChain"/>
+      <class name="restassured.apichain.UpdateUserAPIChain"/>
+      <class name="restassured.apichain.DeleteUserAPIChain"/>
+      
+    </classes>
+  </test> 
+</suite> 

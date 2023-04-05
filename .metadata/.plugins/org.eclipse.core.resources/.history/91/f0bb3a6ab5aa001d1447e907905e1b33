@@ -1,0 +1,10 @@
+package packages.restassured.training;
+
+public class PojoData {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

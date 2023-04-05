@@ -1,0 +1,5 @@
+package packages.restassured.training;
+
+public class CookieHeaderParams {
+
+}

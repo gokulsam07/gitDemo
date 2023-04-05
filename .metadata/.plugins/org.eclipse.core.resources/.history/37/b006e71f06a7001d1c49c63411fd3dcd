@@ -1,0 +1,19 @@
+package pkg.parent;
+
+public class Main2 {
+
+
+	public static void main(String[] args) {
+
+Corbet obj = new Corbet();
+System.out.println(obj.nam);
+	}
+}
+
+
+class Corbet{
+
+		String nam ="Me";
+		
+	}
+

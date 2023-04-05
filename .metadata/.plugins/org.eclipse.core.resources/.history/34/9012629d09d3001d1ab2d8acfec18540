@@ -1,0 +1,38 @@
+package stepdefinitions;
+
+import org.testng.Assert;
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class RegisterTest {
+	@Given("when user opens register page")
+	public void when_user_opens_register_page() {
+		System.out.println("a");
+	}
+
+	@When("user enters all the mandatory details")
+	public void user_enters_all_the_mandatory_details(DataTable dataTable) {
+		System.out.println("a");
+	}
+
+	
+	@When("user selects policy")
+	public void user_selects_policy() {
+		System.out.println("a");
+	}
+
+	@When("user clicks create")
+	public void user_clicks_create() {
+		System.out.println("a");
+		Assert.assertFalse(true);
+	}
+
+	@Then("account should be created")
+	public void account_should_be_created() {
+		
+		System.out.println("a");
+	}	 
+}

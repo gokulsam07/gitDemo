@@ -1,0 +1,55 @@
+package packages.restassured.training;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+import java.util.HashMap;
+
+
+public class HttpRequestDemo {
+
+	
+	@Test(priority=1)
+void getUsers() {
+	
+	given().when().get("https://reqres.in/api/users?page=2").then().statusCode(200).body("page", equalTo(2)).log().all();
+	
+}
+	void createUser() {
+		
+		HashMap hm = new HashMap();
+		hm.put("id", 121);
+		hm.put("email", "edi777@gmail.com");
+		hm.put("first_name", "Edison");
+		hm.put("last_name", "Sub");
+		hm.put("avatar", "https://reqres.in/img/faces/7-image.jpg");
+		
+		given()
+		.contentType("application/json")
+		.body(hm)
+		.when()
+		.post("https://reqres.in/api/users")
+		.then()
+		.statusCode(200);
+	}
+	}
+
+
+
+
+
+/*
+ * given()
+ * ---- cookie, content type, params, authentication, headers...
+ * 
+ * when()
+ * ---- get,post, patch, delete...
+ * 
+ * then()
+ *  status code, exact response, exact headers, exact body... 
+ * 
+ * 
+ */

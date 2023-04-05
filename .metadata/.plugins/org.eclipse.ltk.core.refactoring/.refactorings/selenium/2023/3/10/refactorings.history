@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;automation.selenium.JsDemo&apos; to &apos;JsandCookieDemo&apos;&#x0D;&#x0A;- Original project: &apos;selenium&apos;&#x0D;&#x0A;- Original element: &apos;automation.selenium.JsDemo&apos;&#x0D;&#x0A;- Renamed element: &apos;automation.selenium.JsandCookieDemo&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;JsDemo&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;automation.selenium{JsDemo.java[JsDemo" matchStrategy="1" name="JsandCookieDemo" qualified="false" references="true" similarDeclarations="false" stamp="1678251597319" textual="false" version="1.0"/>
+</session>

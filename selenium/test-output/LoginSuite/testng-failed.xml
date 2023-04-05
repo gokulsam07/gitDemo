@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [LoginSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="CorrectUserNameandPassword(failed)">
+    <classes>
+      <class name="multiple.TC1">
+        <methods>
+          <include name="Login_using_POM"/>
+        </methods>
+      </class> <!-- multiple.TC1 -->
+    </classes>
+  </test> <!-- CorrectUserNameandPassword(failed) -->
+  <test thread-count="5" name="WrongUserNameandCorrectPassword(failed)">
+    <classes>
+      <class name="multiple.TC2">
+        <methods>
+          <include name="Login_using_POM"/>
+        </methods>
+      </class> <!-- multiple.TC2 -->
+    </classes>
+  </test> <!-- WrongUserNameandCorrectPassword(failed) -->
+  <test thread-count="5" name="CorrectUserNameandWrongPassword(failed)">
+    <classes>
+      <class name="multiple.TC3">
+        <methods>
+          <include name="Login_using_POM"/>
+        </methods>
+      </class> <!-- multiple.TC3 -->
+    </classes>
+  </test> <!-- CorrectUserNameandWrongPassword(failed) -->
+  <test thread-count="5" name="WrongUserNameandPassword(failed)">
+    <classes>
+      <class name="multiple.TC4">
+        <methods>
+          <include name="Login_using_POM"/>
+        </methods>
+      </class> <!-- multiple.TC4 -->
+    </classes>
+  </test> <!-- WrongUserNameandPassword(failed) -->
+</suite> <!-- Failed suite [LoginSuite] -->

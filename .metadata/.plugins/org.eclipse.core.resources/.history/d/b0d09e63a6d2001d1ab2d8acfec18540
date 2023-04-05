@@ -1,0 +1,3 @@
+Feature: Login feature
+Registered user should be able to login with valid credentials
+Scenario: Login with valid credentials

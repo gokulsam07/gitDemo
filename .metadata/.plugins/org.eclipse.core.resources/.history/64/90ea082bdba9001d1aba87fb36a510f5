@@ -1,0 +1,36 @@
+package pkg.parent;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
+import java.util.Map;
+
+public class MapExample {
+
+	public static void main(String[] args) {
+		
+		Map<Integer, String> m = new HashMap<Integer, String>();
+		
+		//insert
+	m.put(0, "A");
+	m.put(1, "B");
+	m.put(2, "A");
+	m.put(3, "B");
+	m.put(4, "A");
+	m.put(5, "B");
+	
+	System.out.println(m);
+	
+	
+	//Update
+	
+	m.put(2, "C");
+	m.put(3, "D");
+	
+	System.out.println(m);
+	
+		
+
+	}
+
+}

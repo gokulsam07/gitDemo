@@ -1,0 +1,33 @@
+package packages.restassured.training;
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+import static org.testng.Assert.assertEquals;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+
+public class JSONResponseValidation {
+
+	//@Test(priority=1) //Approach 1 -- for loop and conditional statements can't be performed. Only basic validations can be done
+	void testApproach1() {
+		given().contentType(ContentType.JSON)
+		.when().get("https://reqres.in/api/users?page=2")
+		.then().statusCode(200).body("data[0].first_name",equalTo("Michael"));
+	
+	}
+	
+	@Test(priority=2) //Using Response class -- for complex response object validation
+	void testApproach2() {
+		Response res = given().contentType(ContentType.JSON)
+		.when().get("https://reqres.in/api/users?page=2");
+		
+		Assert.assertEquals(res.statusCode(), 200);
+		Assert.assertEquals(res.getContentType(), "application/json");
+		
+	}
+	
+}

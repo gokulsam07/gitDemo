@@ -1,0 +1,5 @@
+package automation.cucumber;
+
+public class RegisterTest {
+
+}

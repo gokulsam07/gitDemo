@@ -1,0 +1,57 @@
+package automation.selenium;
+import java.util.Set;
+
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+
+public class JsandCookieDemo {
+	@Test(enabled=false)
+	void jsDemo1() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://letcode.in/frame");
+		JavascriptExecutor js =  (JavascriptExecutor)driver;
+		//js.executeScript("alert('Gokul');");
+		js.executeAsyncScript("window.setTimeout(function(){alert('world');},4000);alert('Hello');"); 
+
+		/*
+		 * Alert hello is second in the syntax but will be executed first since there is
+		 * no time wait Though the code to print alert is first, it has 4 seconds of
+		 * wait before executing, so it will be displayed after 4 seconds of code
+		 * execution This is async Code.class If there is no wait, the world will be
+		 * printed first then hello (sync code --> one after the other)
+		 * 
+		 * Sync code --> ticket reservation async code --> hotel ordering
+		 */
+	}
+
+	@Test(enabled=false)
+	void getCookies() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://letcode.in/frame");
+		Set<Cookie> cookies = driver.manage().getCookies();
+		for (Cookie cookie : cookies) {
+			System.out.println("Cookie Name "+ cookie.getName());
+			System.out.println("Cookie Domain "+ cookie.getDomain());
+			System.out.println("Cookie Path "+ cookie.getPath());
+			System.out.println("Cookie Value "+ cookie.getValue());
+			System.out.println("Cookie Expiry "+ cookie.getExpiry());
+		}
+	}	
+	
+	@Test(enabled=true)
+	void getCookieNamed() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://letcode.in/frame");
+		Cookie cookie = driver.manage().getCookieNamed("__gads");
+		System.out.println("Cookie Name "+ cookie.getName());
+		System.out.println("Cookie Domain "+ cookie.getDomain());
+		System.out.println("Cookie Path "+ cookie.getPath());
+		System.out.println("Cookie Value "+ cookie.getValue());
+		System.out.println("Cookie Expiry "+ cookie.getExpiry());
+	}
+
+}

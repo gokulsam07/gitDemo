@@ -1,0 +1,145 @@
+package packages.restassured.training;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import org.testng.annotations.Test;
+
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.HashMap;
+
+
+
+public class PostRequestBodyMethods {
+	String id;	
+	
+	//HashMap
+	
+	//@Test(priority=1)
+	void HashMapMethod() {
+		
+		//Initializing and set values to HashMap
+		HashMap hm = new HashMap();
+		hm.put("name","Scott");
+		hm.put("location","India");
+		hm.put("phone","123456");
+		hm.put("courses",new String[] {"C","C++"});
+		
+		given()
+			.contentType("application/json")
+			.body(hm)
+		.when()
+			.post("https://reqres.in/api/users")
+		.then()
+			.statusCode(201)
+			.body("name", equalTo("Scott"))
+			.body("location", equalTo("India"))
+			.body("phone", equalTo("123456"))
+			.body("courses", contains("C","C++"))
+			.header("Content-Type", "application/json; charset=utf-8")
+			.log().all();		
+	}
+	
+	
+	//post using org.json -- check in pom.xml that org.json dependency is available
+	
+	//@Test(priority=1)
+	void orgJsonLibrary() {
+		
+		//Initializing and set values to JSON Object
+		JSONObject jo = new JSONObject();
+		jo.put("name","Scott");
+		jo.put("location","India");
+		jo.put("phone","123456");
+		jo.put("courses",new String[] {"C","C++"});
+		
+		 given()
+			.contentType("application/json")
+			.body(jo.toString()) 
+		.when()
+			.post("https://reqres.in/api/users")
+		.then()
+			.statusCode(201)
+			.body("name", equalTo("Scott"))
+			.body("location", equalTo("India"))
+			.body("phone", equalTo("123456"))
+			.body("courses", contains("C","C++"))
+			.header("Content-Type", "application/json; charset=utf-8")
+			.log().all();		
+	}
+	
+	//Using external file
+	
+	
+	//@Test(priority=1) 
+	void ExternalFile() throws FileNotFoundException {
+		
+		File f = new File("C:\\Users\\v-gokulsam\\Documents\\file.json");
+		FileReader fr = new FileReader(f);
+		JSONTokener j = new JSONTokener(fr);
+		JSONObject o = new JSONObject(j);
+
+		 given()
+			.contentType("application/json")
+			.body(o.toString()) 
+		.when()
+			.post("https://reqres.in/api/users")
+		.then()
+			.statusCode(201)
+			.body("name", equalTo("Scott"))
+			.body("location", equalTo("India"))
+			.body("phone", equalTo("123456"))
+			.body("courses", contains("C","C++"))
+			.header("Content-Type", "application/json; charset=utf-8")
+			.log().body().extract().response();	
+			
+	}
+	
+	//Using POJO Class
+	
+	
+	@Test(priority=1)
+	void POJOMethod() {
+		PojoData pj = new PojoData();
+		pj.setCourses(new String[] {"C","C++"});
+		pj.setLocation("India");
+		pj.setName("Kavin");
+		pj.setPhone("123456");
+		
+	Response r = 	given()
+		.contentType("application/json")
+		.body(pj) 
+	.when()
+		.post("https://reqres.in/api/users")
+	.then()
+		.statusCode(201)
+		.body("name", equalTo("Kavin"))
+		.body("location", equalTo("India"))
+		.body("phone", equalTo("123456"))
+		.body("courses", contains("C","C++"))
+		.header("Content-Type", "application/json; charset=utf-8")
+		.log().body().extract().response();		
+	
+	//System.out.println(r);
+	
+	//String rx = r.asString();
+	JsonPath jp = new JsonPath(r.toString());
+	id = jp.getString( "id" );
+	System.out.println("Printing ID" +id);
+	}
+
+	
+	
+	@Test(priority=2, dependsOnMethods = {"POJOMethod"})
+	void deleteUser() {
+		
+		given().when().delete("https://reqres.in/api/users/"+id).then().statusCode(204);
+	}
+	
+}

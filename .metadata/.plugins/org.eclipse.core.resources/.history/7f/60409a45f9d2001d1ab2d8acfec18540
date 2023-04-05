@@ -1,0 +1,11 @@
+package learning;
+
+import java.util.regex.Pattern;
+
+public class PatternDemo {
+
+	public static void main(String[] args) {
+		boolean isMactched = Pattern.matches(".*Gokul.*", "My name is Gokul");
+		System.out.println(isMactched);
+	}
+}

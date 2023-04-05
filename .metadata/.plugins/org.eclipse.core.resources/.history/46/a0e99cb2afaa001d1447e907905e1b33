@@ -1,0 +1,44 @@
+package packages.restassured.training;
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+import java.util.HashMap;
+public class PostRequestBodyMethods {
+
+	//HashMap
+	
+	@Test(priority=1)
+	void HashMapMethod() {
+		
+		//Initializing and set values to HashMap
+		HashMap hm = new HashMap();
+		hm.put("name","Scott");
+		hm.put("location","India");
+		hm.put("phone","123456");
+		hm.put("courses",new String[] {"C","C++"});
+		
+		given()
+			.contentType("application/json")
+			.body(hm)
+		.when()
+			.post("https://reqres.in/api/users")
+		.then()
+			.statusCode(201)
+			.body("name", equalTo("Scott"))
+			.body("loction", equalTo("India"))
+			.body("phone", equalTo("123456"))
+			.body("courses", contains("C","C++"))
+			.headers("Content-Type", "application.json","charset=utf-8")
+			.log().all();		
+	}
+	
+	//@Test(priority=2)
+	void deleteUser() {
+		
+		given().when().delete("https://reqres.in/api/users");
+	}
+	
+}

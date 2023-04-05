@@ -1,0 +1,15 @@
+Feature: Register new user
+  Register new user account for opencart
+@resister
+  Scenario: Create a new account with mandatory fields
+    Given when user opens register page
+    When user enters all the mandatory details
+      | firstName | Gokul                |
+      | lastName  | Saminathan           |
+      | email     | gokuls2381@gmail.com |
+      | telephone |           2345678901 |
+      | password  | Gokul@123            |
+      | confirm   | Gokul@123            |
+    And user selects policy
+    And user clicks create
+    Then account should be created

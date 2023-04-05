@@ -1,0 +1,58 @@
+package automation.cucumber;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class LoginTest {
+	@Given("User navigates to login page")
+	public void user_navigates_to_login_page() {
+	  System.out.println("opened login page");
+	}
+
+	@When("User enters valid email address {string}")
+	public void user_enters_valid_email_address(String string) {
+		System.out.println("enters valid username");
+	}
+
+	@When("user enters valid password {string}")
+	public void user_enters_valid_password(String string) {
+		System.out.println("enters valid password");
+	}
+
+	@When("user clicks on login button")
+	public void user_clicks_on_login_button() {
+		System.out.println("clicks login button");
+	}
+
+	@Then("user should be logged in successfully")
+	public void user_should_be_logged_in_successfully() {
+		System.out.println("Logged In");
+	}
+
+	@When("User enters invalid email address {string}")
+	public void user_enters_invalid_email_address(String string) {
+		System.out.println("enters invalid password"+string);
+	}
+	
+	@When("user enters invalid password {string}")
+	public void user_enters_invalid_password(String string) {
+		System.out.println("enters invalid password"+string);
+	}
+
+	@Then("appropriate warning message should be thrown")
+	public void appropriate_warning_message_should_be_thrown() {
+		System.out.println("enter valid credentials");
+	}
+
+	@When("User enters no email address")
+	public void user_enters_no_email_address() {
+		System.out.println("enters no username");
+	}
+
+	@When("user enters no password")
+	public void user_enters_no_password() {
+		System.out.println("enters no password");
+	}
+
+}

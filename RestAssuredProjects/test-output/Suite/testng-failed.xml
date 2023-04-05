@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test2(failed)">
+    <classes>
+      <class name="restassured.apichain.GetUserAPIChain">
+        <methods>
+          <include name="getListUser" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- restassured.apichain.GetUserAPIChain -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+  <test thread-count="5" name="Test3(failed)">
+    <classes>
+      <class name="restassured.apichain.UpdateUserAPIChain">
+        <methods>
+          <include name="updateList" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- restassured.apichain.UpdateUserAPIChain -->
+    </classes>
+  </test> <!-- Test3(failed) -->
+  <test thread-count="5" name="Test4(failed)">
+    <classes>
+      <class name="restassured.apichain.DeleteUserAPIChain">
+        <methods>
+          <include name="deleteList" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- restassured.apichain.DeleteUserAPIChain -->
+    </classes>
+  </test> <!-- Test4(failed) -->
+</suite> <!-- Failed suite [Suite] -->

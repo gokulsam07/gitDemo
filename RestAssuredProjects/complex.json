@@ -1,0 +1,32 @@
+{
+  "category" : "Super hero movies & TV Series",
+  "acceptedFranchises" : [ "DC", "Marvel" ],
+  "movies" : [ {
+    "title" : "Avengers",
+    "year" : 2009,
+    "cast" : null
+  }, {
+    "title" : "Batman",
+    "year" : 2008,
+    "cast" : [ "Robert Downey Jr", "Chris Evans" ]
+  }, {
+    "title" : "Justice League",
+    "year" : 2007,
+    "cast" : null
+  } ],
+  "tvseries" : [ {
+    "title" : "Super Girl",
+    "year" : 2018
+  }, {
+    "title" : "Gotham",
+    "year" : 2014
+  }, {
+    "title" : "Falsh",
+    "year" : 2014
+  } ],
+  "otherdetails" : {
+    "country" : "USA",
+    "language" : "English"
+  },
+  "genere" : [ "Action", "Adventure", "Heroic", "Dark", "Funny" ]
+}

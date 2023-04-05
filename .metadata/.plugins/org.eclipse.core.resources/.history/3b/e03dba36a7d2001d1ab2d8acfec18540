@@ -1,0 +1,16 @@
+Feature: Login functionality
+Registered user should be able to login using valid credentials
+Scenario: Login with valid credentials
+Given User navigates to login page
+When User enters valid email address "gokuls2381@gmail.com"
+And user enters valid password "Gokul@123"
+And user clicks on login button
+Then user should be logged in successfully
+
+
+Scenario: Login with invalid credentials
+Given User navigates to login page
+When User enters invalid email address "gok2381@gmail.com"
+And user enters valid password "Gokul@123"
+And user clicks on login button
+Then appropriate warning message should be thrown

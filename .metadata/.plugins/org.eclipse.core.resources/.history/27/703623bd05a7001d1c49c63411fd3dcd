@@ -1,0 +1,17 @@
+package pkg.parent;
+
+public class Main2 {
+class Corbet{
+		
+		public Corbet() {
+			System.out.println("Hey");
+			String name ="Me";
+		}}
+
+	public static void main(String[] args) {
+
+Corbet obj = new Corbet();
+obj.name();
+	}
+	}
+
